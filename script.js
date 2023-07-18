@@ -51,6 +51,5 @@ function game() {
     for(i = 0; i < 5; i++) {
         chooseRoundWinner('Rock', getComputerChoice());
     }
-    console.log(`user points ${userPoints}`);
-    console.log(`computer points ${computerPoints}`);
+    selectWinner();
 }
