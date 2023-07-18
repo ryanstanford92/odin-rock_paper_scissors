@@ -32,3 +32,12 @@ function chooseRoundWinner(userChoice, computerChoice) {
         return computerPoints += 1;
     }
 }
+
+//runs 5 rounds and chooses player with most points as the winner
+function game() {
+    for(i = 0; i < 5; i++) {
+        chooseRoundWinner('Rock', getComputerChoice());
+    }
+    console.log(`user points ${userPoints}`);
+    console.log(`computer points ${computerPoints}`);
+}
