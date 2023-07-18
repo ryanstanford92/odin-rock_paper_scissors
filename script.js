@@ -1,4 +1,4 @@
-let choices = ['Rock', 'Paper', 'Scissors'];
+let choices = ['rock', 'paper', 'scissors'];
 let userPoints = 0;
 let computerPoints = 0;
 
@@ -9,9 +9,16 @@ function getComputerChoice() {
     return choices[randomInt];
 }
 
-//input a value between 0 and 2 that maps to and returns the corresponding value in the choices array
-function getUserChoice(choice) {
-    return choices[choice];
+//Input rock, paper, or scissors (case insensitive) to return the corresponding value from the choices array. Loops until user input is valid.
+function getUserChoice() {
+    let selection;
+
+    do {
+        let userChoice = prompt('Enter rock, paper, or scissors');
+        selection = choices[choices.indexOf(userChoice.toString().toLowerCase())];
+    }while(selection == undefined)
+
+    return selection;
 }
 
 //game logic: rock > scissors, paper > rock, scissors > paper
