@@ -33,6 +33,19 @@ function chooseRoundWinner(userChoice, computerChoice) {
     }
 }
 
+//selects the user with the most points
+function selectWinner() {
+    if(userPoints > computerPoints) {
+        console.log(`You win ${userPoints} to ${computerPoints}`);
+    }
+    else if(userPoints < computerPoints) {
+        console.log(`You lose ${computerPoints} to ${userPoints}`);
+    }
+    else {
+        console.log(`TIE ${userPoints} to ${computerPoints}`);
+    }
+}
+
 //runs 5 rounds and chooses player with most points as the winner
 function game() {
     for(i = 0; i < 5; i++) {
