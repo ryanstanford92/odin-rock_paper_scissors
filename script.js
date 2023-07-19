@@ -41,7 +41,7 @@ function playRound(userSelection, computerSelection) {
 }
 
 //selects the user with the most points
-function selectWinner() {
+function getWinner() {
     if(userPoints > computerPoints) {
         console.log(`You win ${userPoints} to ${computerPoints}`);
     }
@@ -58,7 +58,7 @@ function playGame() {
     for(i = 0; i < 5; i++) {
         playRound(getUserSelection(), getComputerSelection());
     }
-    selectWinner();
+    getWinner();
 }
 
 playGame();
