@@ -1,21 +1,21 @@
-let choices = ['rock', 'paper', 'scissors'];
+const GAME_CHOICES = ['rock', 'paper', 'scissors'];
 let userPoints = 0;
 let computerPoints = 0;
 
 //gets a random number between 0 and 2 and returns the value at the corresponding index location in the choices array 
-function getComputerChoice() {
+function getComputerSelection() {
     let randomInt = Math.floor(Math.random() * 3);
 
-    return choices[randomInt];
+    return GAME_CHOICES[randomInt];
 }
 
 //Input rock, paper, or scissors (case insensitive) to return the corresponding value from the choices array. Loops until user input is valid.
-function getUserChoice() {
+function getUserSelection() {
     let selection;
 
     do {
         let userChoice = prompt('Enter rock, paper, or scissors');
-        selection = choices[choices.indexOf(userChoice.toString().toLowerCase())];
+        selection = GAME_CHOICES[GAME_CHOICES.indexOf(userChoice.toString().toLowerCase())];
     }while(selection == undefined)
 
     return selection;
@@ -23,14 +23,14 @@ function getUserChoice() {
 
 //game logic: rock > scissors, paper > rock, scissors > paper
 //choose who wins the round based on input
-function chooseRoundWinner(userChoice, computerChoice) {
-    if(userChoice == computerChoice) {
+function playRound(userSelection, computerSelection) {
+    if(userSelection == computerSelection) {
         console.log('TIE');
         return null;
     }
-    else if(userChoice == 'Rock' && computerChoice == 'Scissors' ||
-            userChoice == 'Paper' && computerChoice == 'Rock' ||
-            userChoice == 'Scissors' && computerChoice == 'Paper') {
+    else if(userSelection == 'rock' && computerSelection == 'scissors' ||
+            userSelection == 'paper' && computerSelection == 'rock' ||
+            userSelection == 'scissors' && computerSelection == 'paper') {
         console.log('You won the round');
         return userPoints += 1;
     }
@@ -41,7 +41,7 @@ function chooseRoundWinner(userChoice, computerChoice) {
 }
 
 //selects the user with the most points
-function selectWinner() {
+function getWinner() {
     if(userPoints > computerPoints) {
         console.log(`You win ${userPoints} to ${computerPoints}`);
     }
@@ -54,9 +54,11 @@ function selectWinner() {
 }
 
 //runs 5 rounds and chooses player with most points as the winner
-function game() {
+function playGame() {
     for(i = 0; i < 5; i++) {
-        chooseRoundWinner('Rock', getComputerChoice());
+        playRound(getUserSelection(), getComputerSelection());
     }
-    selectWinner();
+    getWinner();
 }
+
+playGame();
