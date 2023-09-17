@@ -2,17 +2,18 @@ const GAME_CHOICES = ['rock', 'paper', 'scissors'];
 let userPoints = 0;
 let computerPoints = 0;
 
-//gets a random number between 0 and 2 and returns the value at the corresponding index location in the choices array 
+//Makes random selection for computer
 function getComputerSelection() {
-    let randomInt = Math.floor(Math.random() * 3);
+    let randomInt = Math.floor(Math.random() * 3); //gets a random number between 0 and 2
 
     return GAME_CHOICES[randomInt];
 }
 
-//Input rock, paper, or scissors (case insensitive) to return the corresponding value from the choices array. Loops until user input is valid.
+//Gets valid input for user selection
 function getUserSelection() {
     let selection;
 
+    //loops until user enters valid selection
     do {
         let userChoice = prompt('Enter rock, paper, or scissors');
         selection = GAME_CHOICES[GAME_CHOICES.indexOf(userChoice.toString().toLowerCase())];
@@ -22,7 +23,7 @@ function getUserSelection() {
 }
 
 //game logic: rock > scissors, paper > rock, scissors > paper
-//choose who wins the round based on input
+//determines winner of round and assigns points
 function playRound(userSelection, computerSelection) {
     if(userSelection == computerSelection) {
         console.log('TIE');
