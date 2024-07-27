@@ -55,6 +55,7 @@ function getWinner() {
 }
 
 //runs 5 rounds and chooses player with most points as the winner
+/*
 function playGame() {
     for(i = 0; i < 5; i++) {
         playRound(getUserSelection(), getComputerSelection());
@@ -63,3 +64,4 @@ function playGame() {
 }
 
 playGame();
+*/
