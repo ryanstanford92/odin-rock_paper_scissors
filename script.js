@@ -65,3 +65,12 @@ function playGame() {
 
 playGame();
 */
+
+let buttons = document.querySelectorAll("button");
+buttons.forEach(button => {
+    button.addEventListener("click", (e) => {
+        let selection = e.target.getAttribute("id");
+        playRound(selection, getComputerSelection());
+
+    });
+});
