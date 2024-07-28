@@ -47,14 +47,21 @@ function playRound(userSelection, computerSelection) {
 
 //selects the user with the most points
 function getWinner() {
-    if(userPoints > computerPoints) {
-        console.log(`You win ${userPoints} to ${computerPoints}`);
+
+    if (userPoints == 5 || computerPoints == 5) {
+        buttons.forEach(button => {
+            button.remove();
+        });
+        roundResult.remove();
+        score.remove();
     }
-    else if(userPoints < computerPoints) {
-        console.log(`You lose ${computerPoints} to ${userPoints}`);
+
+    if(userPoints == 5) {
+        gameResult.textContent = `You win ${userPoints} to ${computerPoints}`;
     }
-    else {
-        console.log(`TIE ${userPoints} to ${computerPoints}`);
+    
+    if(computerPoints == 5) {
+        gameResult.textContent = `You lose ${computerPoints} to ${userPoints}`;
     }
 }
 
@@ -75,6 +82,7 @@ buttons.forEach(button => {
     button.addEventListener("click", (e) => {
         let selection = e.target.getAttribute("id");
         playRound(selection, getComputerSelection());
+        getWinner();
 
     });
 });
@@ -85,3 +93,5 @@ score.textContent = "User: " + userPoints + " \t " + "Computer: " + computerPoin
 results.appendChild(score);
 let roundResult = document.createElement("div");
 results.appendChild(roundResult);
+let gameResult = document.createElement("div");
+results.appendChild(gameResult);
