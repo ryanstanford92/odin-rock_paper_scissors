@@ -26,17 +26,21 @@ function getUserSelection() {
 //determines winner of round and assigns points
 function playRound(userSelection, computerSelection) {
     if(userSelection == computerSelection) {
-        console.log('TIE');
+        //console.log('TIE');
+        roundResult.textContent = "TIE";
+        score.textContent = "User: " + userPoints + " \t " + "Computer: " + computerPoints;
         return null;
     }
     else if(userSelection == 'rock' && computerSelection == 'scissors' ||
             userSelection == 'paper' && computerSelection == 'rock' ||
             userSelection == 'scissors' && computerSelection == 'paper') {
-        console.log('You won the round');
+        roundResult.textContent = "You won the round"
+        score.textContent = "User: " + (userPoints + 1) + " \t " + "Computer: " + computerPoints;
         return userPoints += 1;
     }
     else {
-        console.log('You lost the round');
+        roundResult.textContent = "You lost the round";
+        score.textContent = "User: " + userPoints + " \t " + "Computer: " + (computerPoints + 1);
         return computerPoints += 1;
     }
 }
@@ -74,3 +78,10 @@ buttons.forEach(button => {
 
     });
 });
+
+let results = document.querySelector("div");
+let score = document.createElement("div");
+score.textContent = "User: " + userPoints + " \t " + "Computer: " + computerPoints;
+results.appendChild(score);
+let roundResult = document.createElement("div");
+results.appendChild(roundResult);
