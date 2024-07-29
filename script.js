@@ -10,6 +10,7 @@ function getComputerSelection() {
 }
 
 //Gets valid input for user selection
+/*
 function getUserSelection() {
     let selection;
 
@@ -21,6 +22,8 @@ function getUserSelection() {
 
     return selection;
 }
+*/
+
 
 //game logic: rock > scissors, paper > rock, scissors > paper
 //determines winner of round and assigns points
